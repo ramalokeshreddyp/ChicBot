@@ -337,14 +337,15 @@ This repository now includes an automated GitHub Pages deployment pipeline.
 ### How deployment works
 
 1. Push to `main` (or manually trigger the workflow from Actions).
-2. GitHub Actions builds and uploads the `docs/` folder as a Pages artifact.
-3. GitHub deploys the site to your repository Pages URL.
+2. GitHub Actions publishes the `docs/` folder to the `gh-pages` branch.
+3. GitHub Pages serves content from the `gh-pages` branch root.
 
 ### One-time repository setup
 
 1. Open your repository on GitHub.
 2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Choose **Branch: `gh-pages`** and **Folder: `/ (root)`**.
 4. Push your latest commit containing the workflow.
 
 ### Site URL format
