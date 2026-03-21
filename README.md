@@ -325,6 +325,36 @@ python chatbot.py
 
 ---
 
+## 🌐 GitHub Pages Deployment
+
+This repository now includes an automated GitHub Pages deployment pipeline.
+
+### What was added
+
+- **Workflow**: `.github/workflows/deploy-pages.yml`
+- **Published site entry**: `docs/index.html`
+
+### How deployment works
+
+1. Push to `main` (or manually trigger the workflow from Actions).
+2. GitHub Actions builds and uploads the `docs/` folder as a Pages artifact.
+3. GitHub deploys the site to your repository Pages URL.
+
+### One-time repository setup
+
+1. Open your repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Push your latest commit containing the workflow.
+
+### Site URL format
+
+- `https://<your-username>.github.io/<your-repo-name>/`
+
+The landing page links to key project artifacts: `README.md`, `architecture.md`, `projectdocumentation.md`, and `report.md`.
+
+---
+
 ## 📚 Documentation
 
 | Document | Description |

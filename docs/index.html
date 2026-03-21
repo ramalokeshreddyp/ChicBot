@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chic Boutique Offline Chatbot - Docs</title>
+  <style>
+    :root {
+      --bg-1: #0b132b;
+      --bg-2: #1c2541;
+      --panel: #ffffff;
+      --text: #102a43;
+      --muted: #486581;
+      --accent: #e85d04;
+      --accent-2: #2a9d8f;
+      --line: #d9e2ec;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, #1f4068 0%, transparent 30%),
+        radial-gradient(circle at 80% 20%, #2a9d8f33 0%, transparent 35%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3rem;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #ffffff, #f7fafc);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      color: #102a43;
+    }
+
+    p {
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.1rem;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #0b2545;
+    }
+
+    .meta {
+      margin-top: 1.2rem;
+      font-size: 0.95rem;
+      color: #334e68;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fff3eb;
+      border: 1px solid #ffd7bf;
+      color: #9a3412;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      color: #d9e2ec;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .error {
+      color: #b91c1c;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="badge">GitHub Pages Deployment Active</span>
+      <h1>Chic Boutique Offline Customer Support Chatbot</h1>
+      <p>
+        This GitHub Pages site publishes a documentation portal for the offline Ollama + Llama 3.2 chatbot project.
+        Use the cards below to open the core project documents in the repository.
+      </p>
+
+      <div class="grid">
+        <a id="readmeLink" class="card" href="#">
+          <strong>README</strong>
+          Project overview, architecture visuals, setup and usage.
+        </a>
+        <a id="archLink" class="card" href="#">
+          <strong>Architecture</strong>
+          End-to-end architecture, integration model, data flow.
+        </a>
+        <a id="projDocLink" class="card" href="#">
+          <strong>Project Documentation</strong>
+          Detailed methodology, modules, trade-offs, and verification.
+        </a>
+        <a id="reportLink" class="card" href="#">
+          <strong>Evaluation Report</strong>
+          Quantitative and qualitative comparison of prompting methods.
+        </a>
+      </div>
+
+      <div class="meta">
+        <span>Model: llama3.2:3b</span>
+        <span>Execution: Fully Local</span>
+        <span>Privacy: No external inference APIs</span>
+      </div>
+
+      <p id="repoFallback" class="error" style="display:none;">
+        Could not infer repository path automatically. Open this site through your GitHub Pages URL.
+      </p>
+    </section>
+
+    <p class="footer">Built for backend + ML evaluation workflow using local LLM inference.</p>
+  </main>
+
+  <script>
+    (function () {
+      const host = window.location.hostname;
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+      // Standard GitHub Pages pattern: https://<user>.github.io/<repo>/
+      const user = host.endsWith(".github.io") ? host.split(".")[0] : "";
+      const repo = pathParts.length > 0 ? pathParts[0] : "";
+
+      if (!user || !repo) {
+        document.getElementById("repoFallback").style.display = "block";
+        return;
+      }
+
+      const base = "https://github.com/" + user + "/" + repo + "/blob/main/";
+      document.getElementById("readmeLink").href = base + "README.md";
+      document.getElementById("archLink").href = base + "architecture.md";
+      document.getElementById("projDocLink").href = base + "projectdocumentation.md";
+      document.getElementById("reportLink").href = base + "report.md";
+    })();
+  </script>
+</body>
+</html>
