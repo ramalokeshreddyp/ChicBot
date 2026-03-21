@@ -299,6 +299,12 @@ ollama serve
 python chatbot.py
 ```
 
+### Running Tests
+
+```bash
+pytest -q
+```
+
 ### Expected Output
 
 ```
